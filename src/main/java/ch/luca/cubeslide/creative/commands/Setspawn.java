@@ -1,7 +1,7 @@
-package ch.luca.creative.commands;
+package ch.luca.cubeslide.creative.commands;
 
-import ch.luca.creative.api.LocationManager;
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
+import ch.luca.cubeslide.creative.api.LocationManager;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

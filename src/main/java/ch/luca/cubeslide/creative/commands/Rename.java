@@ -1,6 +1,6 @@
-package ch.luca.creative.commands;
+package ch.luca.cubeslide.creative.commands;
 
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

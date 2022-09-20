@@ -1,0 +1,22 @@
+name: Creative
+main: ch.luca.cubeslide.creative.Creative
+version: 1.5
+author: Luca
+commands:
+  spawn:
+  setspawn:
+  abfall:
+  commandspy:
+    aliases: [cmdspy]
+  gamemode:
+    aliases: [gm]
+  kopf:
+    aliases: [head, skull]
+  tpa:
+  tpaccept:
+  teleport:
+    aliases: [tp]
+  creative:
+    aliases: [ce]
+  worlds:
+  hat:

@@ -1,6 +1,6 @@
-package ch.luca.creative.commands;
+package ch.luca.cubeslide.creative.commands;
 
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;

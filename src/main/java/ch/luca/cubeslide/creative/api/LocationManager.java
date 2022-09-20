@@ -1,4 +1,4 @@
-package ch.luca.creative.api;
+package ch.luca.cubeslide.creative.api;
 
 import java.io.File;
 import java.io.IOException;

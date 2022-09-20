@@ -1,7 +1,6 @@
-package ch.luca.creative.commands;
+package ch.luca.cubeslide.creative.commands;
 
-import ch.luca.creative.api.Actionbar;
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -29,13 +28,13 @@ public class Tpaccept implements CommandExecutor {
                 Spawn.teleport.add(t);
                 p.sendMessage(Creative.getPrefix() + "Du hast die Anfrage von §e" + t.getDisplayName() + " §7angenommen.");
                 t.sendMessage(Creative.getPrefix() + "Die Anfrage an §e" + p.getDisplayName() + " §7wurde angenommen.");
-                Actionbar.send(t, "§7Teleportvorgang§8: §c⬜⬜⬜");
+                t.sendMessage("§7Teleportvorgang§8: §c⬜⬜⬜");
                 t.playSound(t.getLocation(), Sound.NOTE_BASS, 2, 2);
                 new BukkitRunnable() {
                     @Override
                     public void run() {
                         if (Spawn.teleport.contains(t)) {
-                            Actionbar.send(t, "§7Teleportvorgang§8: §a⬛§c⬜⬜");
+                            t.sendMessage("§7Teleportvorgang§8: §a⬛§c⬜⬜");
                             t.playSound(t.getLocation(), Sound.NOTE_BASS, 2, 2);
                         }
                     }
@@ -44,7 +43,7 @@ public class Tpaccept implements CommandExecutor {
                     @Override
                     public void run() {
                         if (Spawn.teleport.contains(t)) {
-                            Actionbar.send(t, "§7Teleportvorgang§8: §a⬛⬛§c⬜");
+                            t.sendMessage("§7Teleportvorgang§8: §a⬛⬛§c⬜");
                             t.playSound(t.getLocation(), Sound.NOTE_BASS, 2, 2);
                         }
                     }
@@ -58,7 +57,7 @@ public class Tpaccept implements CommandExecutor {
                             Tpa.tpa.remove(p);
                             Tpa.tpa.remove(t);
                             t.teleport(p.getLocation());
-                            Actionbar.send(t, "§7Teleportvorgang§8: §a⬛⬛⬛");
+                            t.sendMessage("§7Teleportvorgang§8: §a⬛⬛⬛");
                             t.sendMessage(Creative.getPrefix() + "Du wurdest zu §e" + p.getName() + " §7teleportiert.");
                             t.playSound(t.getLocation(), Sound.LEVEL_UP, 2, 2);
                         }

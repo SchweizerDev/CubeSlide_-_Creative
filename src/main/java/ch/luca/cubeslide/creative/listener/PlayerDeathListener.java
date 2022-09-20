@@ -1,7 +1,7 @@
-package ch.luca.creative.listener;
+package ch.luca.cubeslide.creative.listener;
 
-import ch.luca.creative.api.LocationManager;
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
+import ch.luca.cubeslide.creative.api.LocationManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

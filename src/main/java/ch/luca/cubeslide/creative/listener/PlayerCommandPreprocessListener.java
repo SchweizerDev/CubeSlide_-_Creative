@@ -1,6 +1,7 @@
-package ch.luca.creative.listener;
+package ch.luca.cubeslide.creative.listener;
 
-import ch.luca.creative.Creative;
+
+import ch.luca.cubeslide.creative.Creative;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

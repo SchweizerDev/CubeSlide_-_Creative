@@ -1,9 +1,9 @@
-package ch.luca.creative.commands;
+package ch.luca.cubeslide.creative.commands;
 
 import java.io.File;
 import java.io.IOException;
 
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
@@ -69,7 +69,7 @@ public class Worlds implements CommandExecutor {
                     Bukkit.getWorld(wn).setStorm(false);
                     Bukkit.getWorld(wn).setPVP(true);
                     p.sendMessage(Creative.getPrefix() + "Welt wurde importiert!");
-                    this.cfg.set("Worlds." + args[1], Boolean.valueOf(true));
+                    this.cfg.set("Worlds." + args[1], Boolean.TRUE);
                 } catch (Exception e) {
                     p.sendMessage(Creative.getPrefix() + "§4Error...");
                 }
@@ -109,7 +109,7 @@ public class Worlds implements CommandExecutor {
                     try {
                         p.teleport(wld.getSpawnLocation());
                         p.sendMessage(Creative.getPrefix() + "Du wirst teleportiert!");
-                    } catch (Exception exception) {
+                    } catch (Exception ignored) {
                     }
                 } else {
                     p.sendMessage(cmderr);
@@ -143,8 +143,8 @@ public class Worlds implements CommandExecutor {
                     Bukkit.getWorld(wn).setStorm(false);
                     Bukkit.getWorld(wn).setPVP(true);
                     p.sendMessage(Creative.getPrefix() + "Welt wurde erstellt!");
-                    this.cfg.set("Worlds." + args[1], Boolean.valueOf(true));
-                } catch (Exception exception) {
+                    this.cfg.set("Worlds." + args[1], Boolean.TRUE);
+                } catch (Exception ignored) {
                 }
                 try {
                     this.cfg.save(this.welt);

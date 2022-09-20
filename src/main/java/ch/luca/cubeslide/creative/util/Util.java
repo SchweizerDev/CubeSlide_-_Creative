@@ -1,4 +1,4 @@
-package ch.luca.creative.util;
+package ch.luca.cubeslide.creative.util;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -71,15 +71,15 @@ public class Util {
             slotItem = inv.getItem(slot);
             if ((slotItem != null) && (slotItem.getType() != Material.AIR) && (slotItem.getType() == item.getType())
                     && (slotItem.getDurability() == item.getDurability())) {
-                slots.put(Integer.valueOf(slot), slotItem);
+                slots.put(slot, slotItem);
             }
         }
         for (Map.Entry<Integer, ItemStack> entrySlots : slots.entrySet()) {
-            if (((ItemStack) entrySlots.getValue()).getAmount() <= toRemove) {
-                inv.setItem(((Integer) entrySlots.getKey()).intValue(), new ItemStack(Material.AIR));
-                toRemove -= ((ItemStack) entrySlots.getValue()).getAmount();
+            if (entrySlots.getValue().getAmount() <= toRemove) {
+                inv.setItem(entrySlots.getKey(), new ItemStack(Material.AIR));
+                toRemove -= entrySlots.getValue().getAmount();
             } else {
-                ItemStack invItem = inv.getItem(((Integer) entrySlots.getKey()).intValue());
+                ItemStack invItem = inv.getItem(entrySlots.getKey());
                 invItem.setAmount(invItem.getAmount() - toRemove);
                 break;
             }
@@ -94,14 +94,13 @@ public class Util {
     public static void addItem(Player p, ItemStack item) {
         if (p.getInventory().firstEmpty() == -1) {
         } else {
-            p.getInventory().addItem(new ItemStack[]{item});
+            p.getInventory().addItem(item);
         }
     }
 
     public static Random rand = new Random();
     public static int randInt(int min, int max) {
-        int randomNum = rand.nextInt(max - min + 1) + min;
-        return randomNum;
+        return rand.nextInt(max - min + 1) + min;
     }
 
     public static boolean isInt(String amount) {

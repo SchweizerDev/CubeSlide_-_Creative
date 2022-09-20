@@ -1,18 +1,13 @@
-package ch.luca.creative.item;
+package ch.luca.cubeslide.creative.item;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import net.minecraft.server.v1_8_R3.ItemStack;
-import net.minecraft.server.v1_8_R3.NBTTagCompound;
-import net.minecraft.server.v1_8_R3.NBTTagList;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -21,8 +16,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
 
 public class ItemBuilder {
 
@@ -42,72 +35,6 @@ public class ItemBuilder {
     public ItemBuilder amount(int amount) {
         this.is.setAmount(amount);
         return this;
-    }
-
-
-    public ItemBuilder setSkin(Player p) {
-        if(this.is.getType().equals(Material.SKULL_ITEM)) {
-            GameProfile gp = ((CraftPlayer)p).getProfile();
-            Property textures = (Property)gp.getProperties().get("textures").iterator().next();
-
-            GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-            Property property = new Property("textures", textures.getValue(), textures.getSignature());
-            profile.getProperties().put("textures", property);
-
-            this.is.setDurability((short)SkullType.PLAYER.ordinal());
-            SkullMeta meta = (SkullMeta)this.is.getItemMeta();
-            try {
-                Field profileField = SkullChanger.skullMetaClass.getDeclaredField("profile");
-                profileField.setAccessible(true);
-                profileField.set(meta, profile);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.is.setItemMeta(meta);
-            return this;
-        }
-        throw new IllegalArgumentException("skullOwner() only applicable for skulls!");
-    }
-    public ItemBuilder setSkin(String value, String signature) {
-        if(this.is.getType().equals(Material.SKULL_ITEM)) {
-            GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-            Property property = new Property("textures", value, signature);
-            profile.getProperties().put("textures", property);
-
-            this.is.setDurability((short)SkullType.PLAYER.ordinal());
-            SkullMeta meta = (SkullMeta)this.is.getItemMeta();
-            try {
-                Field profileField = SkullChanger.skullMetaClass.getDeclaredField("profile");
-                profileField.setAccessible(true);
-                profileField.set(meta, profile);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.is.setItemMeta(meta);
-            return this;
-        }
-        throw new IllegalArgumentException("skullOwner() only applicable for skulls!");
-    }
-
-    public ItemBuilder setSkin(String value) {
-        if(this.is.getType().equals(Material.SKULL_ITEM)) {
-            GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-            Property property = new Property("textures", value);
-            profile.getProperties().put("textures", property);
-
-            this.is.setDurability((short)SkullType.PLAYER.ordinal());
-            SkullMeta meta = (SkullMeta)this.is.getItemMeta();
-            try {
-                Field profileField = SkullChanger.skullMetaClass.getDeclaredField("profile");
-                profileField.setAccessible(true);
-                profileField.set(meta, profile);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.is.setItemMeta(meta);
-            return this;
-        }
-        throw new IllegalArgumentException("skullOwner() only applicable for skulls!");
     }
 
     public ItemBuilder name(String name) {
@@ -223,29 +150,6 @@ public class ItemBuilder {
             return this;
         }
         throw new IllegalArgumentException("color() only applicable for leather armor!");
-    }
-    public ItemBuilder withGlow() {
-        ItemStack nmsStack = CraftItemStack.asNMSCopy(is);
-        NBTTagCompound tag = null;
-        if (!nmsStack.hasTag()) {
-            tag = new NBTTagCompound();
-            nmsStack.setTag(tag);
-        }
-        if (tag == null) {
-            tag = nmsStack.getTag();
-        }
-        NBTTagList ench = new NBTTagList();
-        tag.set("ench", ench);
-        nmsStack.setTag(tag);
-        this.is = CraftItemStack.asCraftMirror(nmsStack);
-        return this;
-    }
-
-    public ItemBuilder withGlow(boolean b) {
-        if(b){
-            withGlow();
-        }
-        return this;
     }
 
     public ItemBuilder setSkullOwner(String owner) {

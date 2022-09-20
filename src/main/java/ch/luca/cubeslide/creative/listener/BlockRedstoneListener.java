@@ -1,4 +1,4 @@
-package ch.luca.creative.listener;
+package ch.luca.cubeslide.creative.listener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

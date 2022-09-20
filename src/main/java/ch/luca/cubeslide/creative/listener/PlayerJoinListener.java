@@ -1,7 +1,7 @@
-package ch.luca.creative.listener;
+package ch.luca.cubeslide.creative.listener;
 
-import ch.luca.creative.api.LocationManager;
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
+import ch.luca.cubeslide.creative.api.LocationManager;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,7 +14,6 @@ public class PlayerJoinListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         e.setJoinMessage(null);
-        Creative.getInstance().getUserManager().getUser(p);
         p.setGameMode(GameMode.CREATIVE);
         if(p.hasPlayedBefore()) {
             p.sendMessage(Creative.getPrefix() + "Willkommen auf §2Creative§7.");

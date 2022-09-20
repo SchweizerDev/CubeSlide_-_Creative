@@ -1,6 +1,6 @@
-package ch.luca.creative.itemremover;
+package ch.luca.cubeslide.creative.itemremover;
 
-import ch.luca.creative.Creative;
+import ch.luca.cubeslide.creative.Creative;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;

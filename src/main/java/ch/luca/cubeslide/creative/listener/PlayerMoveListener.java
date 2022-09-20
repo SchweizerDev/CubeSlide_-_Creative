@@ -1,7 +1,8 @@
-package ch.luca.creative.listener;
+package ch.luca.cubeslide.creative.listener;
 
-import ch.luca.creative.commands.Spawn;
-import ch.luca.creative.Creative;
+
+import ch.luca.cubeslide.creative.Creative;
+import ch.luca.cubeslide.creative.commands.Spawn;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
