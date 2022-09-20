@@ -37,6 +37,7 @@ public class Creative extends JavaPlugin {
         instance = this;
         getServer().getScheduler().runTaskTimer(this, new ItemRemover(), 20L, 20L);
 
+
         //** Commands **\\
         getCommand("spawn").setExecutor(new Spawn());
         getCommand("setspawn").setExecutor(new Setspawn());
